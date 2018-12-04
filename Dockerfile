@@ -18,7 +18,7 @@ ENV HOME="/usr/local/app" \
     GIT_SYNC_DEST="/usr/local/app" \
     GIT_SYNC_REPO="repo.git"
 
-WORKDIR ${AIRFLOW_HOME}
+WORKDIR ${HOME}
 
 # Run git-sync with environment variables
 ENTRYPOINT ["git-sync.py"]
