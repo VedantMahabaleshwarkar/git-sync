@@ -1,15 +1,24 @@
 FROM python:3.7.1-alpine3.8
 
-# install git
+# Install git
 RUN apk add --update git && rm -rf /var/cache/apk/*
 
-# install click
+# Install click
 RUN pip install click
 
-# copy script
-COPY git-sync.py /git-sync.py
-RUN chmod +x /git-sync.py
+# Copy script
+COPY git-sync.py /usr/bin/git-sync.py
+RUN chmod +x /usr/bin/git-sync.py
 
-# run
-ENV GIT_SYNC_DEST /git/
-ENTRYPOINT ["./git-sync.py"]
+#
+# Finalize the image
+#
+
+ENV HOME="/usr/local/app" \
+    GIT_SYNC_DEST="/usr/local/app" \
+    GIT_SYNC_REPO="repo.git"
+
+WORKDIR ${AIRFLOW_HOME}
+
+# Run git-sync with environment variables
+ENTRYPOINT ["git-sync.py"]

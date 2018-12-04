@@ -13,7 +13,7 @@ items:
     triggers:
       - type: ConfigChange
       - github:
-          secret: airflow
+          secret: git-sync
         type: GitHub
     
     source: 
