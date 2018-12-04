@@ -1,4 +1,4 @@
-FROM python:3-alpine
+FROM python:3.7.1-alpine3.8
 
 # install git
 RUN apk add --update git && rm -rf /var/cache/apk/*
