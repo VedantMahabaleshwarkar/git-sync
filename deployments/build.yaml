@@ -2,6 +2,14 @@ apiVersion: v1
 kind: List
 items:
 
+- kind: ImageStream
+  apiVersion: "v1"
+  metadata:
+    annotations:
+      description: A service for periodically syncing a git repository
+      tags: python, git
+    name: 'git-sync'
+
 - kind: "BuildConfig"
   apiVersion: "v1"
   metadata:
@@ -20,7 +28,6 @@ items:
       git:
         uri: "https://github.com/stufff-ml/git-sync"
         ref: "master"
-      #contextDir: "airflow"
     
     strategy:
       type: Docker
@@ -32,11 +39,3 @@ items:
       to:
         kind: ImageStreamTag
         name: 'git-sync:latest'
-
-- kind: ImageStream
-  apiVersion: "v1"
-  metadata:
-    annotations:
-      description: A command for periodically syncing a git repository
-      tags: python, git
-    name: 'git-sync'
