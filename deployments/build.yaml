@@ -26,7 +26,7 @@ items:
     
     source: 
       git:
-        uri: "https://github.com/majordomusio/git-sync"
+        uri: "https://github.com/VedantMahabaleshwarkar/git-sync"
         ref: "master"
     
     strategy:
