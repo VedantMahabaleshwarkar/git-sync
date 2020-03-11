@@ -14,8 +14,8 @@ RUN chmod +x /usr/bin/git-sync.py
 # Finalize the image
 #
 
-ENV HOME="/usr/local/app" \
-    GIT_SYNC_DEST="/usr/local/app" \
+ENV HOME="/usr/local/airflow" \
+    GIT_SYNC_DEST="/usr/local/airflow" \
     GIT_SYNC_REPO="repo.git"
 
 WORKDIR ${HOME}
